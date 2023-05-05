@@ -5,7 +5,6 @@ import com.ninni.twigs.block.*;
 import com.ninni.twigs.block.enums.SiltPotBlock;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.core.Registry;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -32,7 +31,7 @@ public class TwigsBlocks {
     public static final Block BAMBOO_LEAVES = register("bamboo_leaves", new BambooLeavesBlock(BlockBehaviour.Properties.of(Material.LEAVES).strength(0.2F).noOcclusion().instabreak().noCollission().sound(SoundType.MOSS_CARPET)));
     public static final Block BAMBOO_THATCH = register("bamboo_thatch", new Block(BlockBehaviour.Properties.of(Material.GRASS, MaterialColor.COLOR_GREEN).strength(0.2F).sound(SoundType.MOSS)));
     public static final Block BAMBOO_THATCH_SLAB = register("bamboo_thatch_slab", new SlabBlock(BlockBehaviour.Properties.copy(BAMBOO_THATCH)));
-    public static final Block BAMBOO_MAT = register("bamboo_mat", new BambooMatBlock(FabricBlockSettings.copyOf(Blocks.BAMBOO_PLANKS)));
+    public static final Block BAMBOO_MAT = register("bamboo_mat", new BambooMatBlock(FabricBlockSettings.copyOf(Blocks.OAK_PLANKS).sounds(SoundType.BAMBOO)));
 
     //paper lanterns
     public static final Block PAPER_LANTERN = register("paper_lantern", new PaperLanternBlock(Blocks.AIR, BlockBehaviour.Properties.of(Material.GRASS).strength(1.5f).sound(TwigsSoundEvents.PAPER_LANTERN).lightLevel(blockState -> 15).noOcclusion()));
@@ -55,7 +54,7 @@ public class TwigsBlocks {
     public static final Block ACACIA_TABLE = register("acacia_table", new TableBlock(FabricBlockSettings.copyOf(Blocks.ACACIA_PLANKS)));
     public static final Block DARK_OAK_TABLE = register("dark_oak_table", new TableBlock(FabricBlockSettings.copyOf(Blocks.DARK_OAK_PLANKS)));
     public static final Block MANGROVE_TABLE = register("mangrove_table", new TableBlock(FabricBlockSettings.copyOf(Blocks.MANGROVE_PLANKS)));
-    public static final Block BAMBOO_TABLE = register("bamboo_table", new TableBlock(FabricBlockSettings.copyOf(Blocks.BAMBOO_PLANKS)));
+    public static final Block BAMBOO_TABLE = register("bamboo_table", new TableBlock(FabricBlockSettings.copyOf(Blocks.OAK_PLANKS).sounds(SoundType.BAMBOO)));
     public static final Block CRIMSON_TABLE = register("crimson_table", new TableBlock(FabricBlockSettings.copyOf(Blocks.CRIMSON_PLANKS)));
     public static final Block WARPED_TABLE = register("warped_table", new TableBlock(FabricBlockSettings.copyOf(Blocks.WARPED_PLANKS)));
 
@@ -325,6 +324,6 @@ public class TwigsBlocks {
     }
 
     private static Block register(String id, Block block) {
-        return Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(Twigs.MOD_ID, id), block);
+        return Registry.register(Registry.BLOCK, new ResourceLocation(Twigs.MOD_ID, id), block);
     }
 }

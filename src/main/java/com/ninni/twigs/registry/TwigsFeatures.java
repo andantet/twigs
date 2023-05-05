@@ -7,7 +7,6 @@ import com.ninni.twigs.world.gen.features.WaterloggableSimpleBlockFeature;
 import com.ninni.twigs.world.gen.features.config.AzaleaFlowerPatchConfig;
 import com.ninni.twigs.world.gen.features.config.NoiseStripConfig;
 import net.minecraft.core.Registry;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
@@ -20,7 +19,7 @@ public class TwigsFeatures {
     public static final Feature<SimpleBlockConfiguration> WATERLOGGABLE_SIMPLE_BLOCK = register("waterloggable_simple_block", new WaterloggableSimpleBlockFeature(SimpleBlockConfiguration.CODEC));
 
     private static <C extends FeatureConfiguration, F extends Feature<C>> F register(String string, F feature) {
-        return Registry.register(BuiltInRegistries.FEATURE, new ResourceLocation(Twigs.MOD_ID, string), feature);
+        return Registry.register(Registry.FEATURE, new ResourceLocation(Twigs.MOD_ID, string), feature);
     }
 
 }

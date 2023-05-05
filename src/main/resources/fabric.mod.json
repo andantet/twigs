@@ -33,9 +33,6 @@
     ],
     "client":   [
       "com.ninni.twigs.TwigsClient"
-    ],
-    "fabric-datagen": [
-      "com.ninni.twigs.data.TwigsDataGenerator"
     ]
   },
   "mixins": [ "twigs.mixins.json" ],

@@ -13,20 +13,6 @@ group = project.maven_group
 repositories {
 }
 
-loom {
-	runs {
-		datagenClient {
-			inherit client
-			name "Data Generation"
-			vmArg "-Dfabric-api.datagen"
-			vmArg "-Dfabric-api.datagen.output-dir=${file("src/main/generated")}"
-			vmArg "-Dfabric-api.datagen.modid=twigs"
-
-			runDir "build/datagen"
-		}
-	}
-}
-
 sourceSets {
 	main {
 		resources {

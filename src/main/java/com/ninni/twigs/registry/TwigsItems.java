@@ -7,9 +7,7 @@ import com.ninni.twigs.item.TwigItem;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.registry.CompostingChanceRegistry;
 import net.minecraft.core.Registry;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.InstrumentTags;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
@@ -328,6 +326,6 @@ public class TwigsItems {
     }
 
     private static Item register(String id, Item item) {
-        return Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(Twigs.MOD_ID, id), item);
+        return Registry.register(Registry.ITEM, new ResourceLocation(Twigs.MOD_ID, id), item);
     }
 }

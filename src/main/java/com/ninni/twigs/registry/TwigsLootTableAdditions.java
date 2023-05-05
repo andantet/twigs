@@ -8,15 +8,15 @@ import net.minecraft.advancements.critereon.EnchantmentPredicate;
 import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.advancements.critereon.MinMaxBounds;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
-import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.Enchantments;
-import net.minecraft.world.level.block.BambooStalkBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.LeavesBlock;
 import net.minecraft.world.level.block.state.properties.BambooLeaves;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.entries.LootPoolEntryContainer;
@@ -37,7 +37,7 @@ public class TwigsLootTableAdditions {
 
     static {
         Supplier<Set<ResourceLocation>> leafTablesSupplier = Suppliers.memoize(() -> {
-            return BuiltInRegistries.BLOCK.stream()
+            return Registry.BLOCK.stream()
                     .filter(LeavesBlock.class::isInstance)
                     .map(Block::getLootTable)
                     .collect(Collectors.toSet());
@@ -51,7 +51,7 @@ public class TwigsLootTableAdditions {
                                                 .when(
                                                         InvertedLootItemCondition.invert(
                                                                 LootItemBlockStatePropertyCondition.hasBlockStateProperties(Blocks.BAMBOO)
-                                                                        .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(BambooStalkBlock.LEAVES, BambooLeaves.NONE))
+                                                                        .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(BlockStateProperties.BAMBOO_LEAVES, BambooLeaves.NONE))
                                                         )
                                                 ).build()
                                 ).build()
