@@ -4,6 +4,6 @@
 		"side": "twigs:block/bamboo_table",
 		"bottom": "twigs:block/bamboo_table_bottom",
 		"top": "twigs:block/bamboo_table_top",
-		"particle": "block/bamboo_planks"
+		"particle": "twigs:block/bamboo_table_top"
 	}
 }
