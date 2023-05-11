@@ -34,7 +34,7 @@ public class ClientEvents {
 
     @SubscribeEvent
     public static void registerParticles(RegisterParticleProvidersEvent event) {
-        event.registerSpecial(TwigsParticleTypes.ITEM_PEBBLE.get(), new TwigsBreakingItemParticle.Provider());
+        event.register(TwigsParticleTypes.ITEM_PEBBLE.get(), new TwigsBreakingItemParticle.Provider());
     }
 
 }

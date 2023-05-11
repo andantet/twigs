@@ -3,9 +3,7 @@ package com.ninni.twigs.registry;
 import com.ninni.twigs.Twigs;
 import com.ninni.twigs.block.*;
 import com.ninni.twigs.block.enums.SiltPotBlock;
-import net.minecraft.world.level.block.state.BlockBehaviour.Properties;
 import net.minecraft.core.Registry;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -39,7 +37,7 @@ public class TwigsBlocks {
         public static final RegistryObject<Block> BAMBOO_LEAVES = BLOCKS.register("bamboo_leaves", () -> new BambooLeavesBlock(BlockBehaviour.Properties.of(Material.LEAVES).strength(0.2F).noOcclusion().instabreak().noCollission().sound(SoundType.MOSS_CARPET)));
     public static final RegistryObject<Block> BAMBOO_THATCH = BLOCKS.register("bamboo_thatch", () -> new Block(BlockBehaviour.Properties.of(Material.GRASS, MaterialColor.COLOR_GREEN).strength(0.2F).sound(SoundType.MOSS)));
     public static final RegistryObject<Block> BAMBOO_THATCH_SLAB = BLOCKS.register("bamboo_thatch_slab", () -> new SlabBlock(BlockBehaviour.Properties.copy(BAMBOO_THATCH.get())));
-    public static final RegistryObject<Block> BAMBOO_MAT = BLOCKS.register("bamboo_mat", () -> new BambooMatBlock(BlockBehaviour.Properties.copy(Blocks.BAMBOO_PLANKS)));
+    public static final RegistryObject<Block> BAMBOO_MAT = BLOCKS.register("bamboo_mat", () -> new BambooMatBlock(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS).sound(SoundType.BAMBOO)));
 
     //paper lanterns
     public static final RegistryObject<Block> PAPER_LANTERN = BLOCKS.register("paper_lantern", () -> new PaperLanternBlock(Blocks.AIR, BlockBehaviour.Properties.of(Material.GRASS).strength(1.5f).sound(TwigsSoundEvents.PAPER_LANTERN).lightLevel(blockState -> 15).noOcclusion()));
@@ -47,7 +45,6 @@ public class TwigsBlocks {
     public static final RegistryObject<Block> BLUE_ORCHID_PAPER_LANTERN = BLOCKS.register("blue_orchid_paper_lantern", () -> new PaperLanternBlock(Blocks.BLUE_ORCHID, BlockBehaviour.Properties.copy(PAPER_LANTERN.get())));
     public static final RegistryObject<Block> CRIMSON_ROOTS_PAPER_LANTERN = BLOCKS.register("crimson_roots_paper_lantern", () -> new PaperLanternBlock(Blocks.CRIMSON_ROOTS, BlockBehaviour.Properties.copy(PAPER_LANTERN.get())));
     public static final RegistryObject<Block> DANDELION_PAPER_LANTERN = BLOCKS.register("dandelion_paper_lantern", () -> new PaperLanternBlock(Blocks.DANDELION, BlockBehaviour.Properties.copy(PAPER_LANTERN.get())));
-    public static final RegistryObject<Block> TORCHFLOWER_PAPER_LANTERN = BLOCKS.register("torchflower_paper_lantern", () -> new PaperLanternBlock(Blocks.TORCHFLOWER, BlockBehaviour.Properties.copy(PAPER_LANTERN.get())));
 
     //lamps
     public static final RegistryObject<Block> LAMP = BLOCKS.register("lamp", () -> new LampBlock(BlockBehaviour.Properties.of(Material.METAL).requiresCorrectToolForDrops().strength(4.5F).sound(TwigsSoundEvents.LAMP).lightLevel(createLampLightLevel())));
@@ -63,8 +60,7 @@ public class TwigsBlocks {
     public static final RegistryObject<Block> ACACIA_TABLE = BLOCKS.register("acacia_table", () -> new TableBlock(BlockBehaviour.Properties.copy(Blocks.ACACIA_PLANKS)));
     public static final RegistryObject<Block> DARK_OAK_TABLE = BLOCKS.register("dark_oak_table", () -> new TableBlock(BlockBehaviour.Properties.copy(Blocks.DARK_OAK_PLANKS)));
     public static final RegistryObject<Block> MANGROVE_TABLE = BLOCKS.register("mangrove_table", () -> new TableBlock(BlockBehaviour.Properties.copy(Blocks.MANGROVE_PLANKS)));
-    public static final RegistryObject<Block> CHERRY_TABLE = BLOCKS.register("cherry_table", () -> new TableBlock(BlockBehaviour.Properties.copy(Blocks.CHERRY_PLANKS)));
-    public static final RegistryObject<Block> BAMBOO_TABLE = BLOCKS.register("bamboo_table", () -> new TableBlock(BlockBehaviour.Properties.copy(Blocks.BAMBOO_PLANKS)));
+    public static final RegistryObject<Block> BAMBOO_TABLE = BLOCKS.register("bamboo_table", () -> new TableBlock(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS).sound(SoundType.BAMBOO)));
     public static final RegistryObject<Block> CRIMSON_TABLE = BLOCKS.register("crimson_table", () -> new TableBlock(BlockBehaviour.Properties.copy(Blocks.CRIMSON_PLANKS)));
     public static final RegistryObject<Block> WARPED_TABLE = BLOCKS.register("warped_table", () -> new TableBlock(BlockBehaviour.Properties.copy(Blocks.WARPED_PLANKS)));
 
@@ -334,6 +330,6 @@ public class TwigsBlocks {
     }
 
     private static Block register(String id, Block block) {
-        return Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(Twigs.MOD_ID, id), block);
+        return Registry.register(Registry.BLOCK, new ResourceLocation(Twigs.MOD_ID, id), block);
     }
 }

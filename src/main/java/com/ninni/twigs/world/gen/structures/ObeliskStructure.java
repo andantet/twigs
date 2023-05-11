@@ -22,7 +22,7 @@ public class ObeliskStructure extends Structure {
     }
 
     @Override
-    protected Optional<GenerationStub> findGenerationPoint(GenerationContext generationContext) {
+    public Optional<GenerationStub> findGenerationPoint(GenerationContext generationContext) {
         if (!ObeliskStructure.canGenerate(generationContext, generationContext.chunkPos().getMiddleBlockPosition(0))) {
             return Optional.empty();
         }
