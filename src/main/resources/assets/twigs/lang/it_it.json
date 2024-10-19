@@ -202,7 +202,7 @@
   "block.twigs.green_silt_pot": "Vaso di limo verde",
   "block.twigs.red_silt_pot": "Vaso di limo rosso",
   "block.twigs.black_silt_pot": "Vaso di limo nero",
-  "stat.minecraft.open_silt_pot": "Vasi di limo aperti",
+  "stat.twigs.open_silt_pot": "Vasi di limo aperti",
 
   "block.twigs.packed_silt": "Limo compatto",
   "block.twigs.white_packed_silt": "Limo compatto bianco",
