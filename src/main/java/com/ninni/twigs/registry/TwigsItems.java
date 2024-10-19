@@ -38,9 +38,10 @@ public class TwigsItems {
     public static final Item BLUE_ORCHID_PAPER_LANTERN = register("blue_orchid_paper_lantern", new BlockItem(TwigsBlocks.BLUE_ORCHID_PAPER_LANTERN, new Item.Properties()));
     public static final Item CRIMSON_ROOTS_PAPER_LANTERN = register("crimson_roots_paper_lantern", new BlockItem(TwigsBlocks.CRIMSON_ROOTS_PAPER_LANTERN, new Item.Properties()));
     public static final Item DANDELION_PAPER_LANTERN = register("dandelion_paper_lantern", new BlockItem(TwigsBlocks.DANDELION_PAPER_LANTERN, new Item.Properties()));
+    public static final Item TORCHFLOWER_PAPER_LANTERN = register("torchflower_paper_lantern", new BlockItem(TwigsBlocks.TORCHFLOWER_PAPER_LANTERN, new Item.Properties()));
 
     //lamps
-    public static final Item lAMP = register("lamp", new BlockItem(TwigsBlocks.LAMP, new Item.Properties()));
+    public static final Item LAMP = register("lamp", new BlockItem(TwigsBlocks.LAMP, new Item.Properties()));
     public static final Item SOUL_LAMP = register("soul_lamp", new BlockItem(TwigsBlocks.SOUL_LAMP, new Item.Properties()));
     public static final Item CRIMSON_SHROOMLAMP = register("crimson_shroomlamp", new BlockItem(TwigsBlocks.CRIMSON_SHROOMLAMP, new Item.Properties()));
     public static final Item WARPED_SHROOMLAMP = register("warped_shroomlamp", new BlockItem(TwigsBlocks.WARPED_SHROOMLAMP, new Item.Properties()));
@@ -53,6 +54,7 @@ public class TwigsItems {
     public static final Item ACACIA_TABLE = register("acacia_table", new BlockItem(TwigsBlocks.ACACIA_TABLE, new Item.Properties()));
     public static final Item DARK_OAK_TABLE = register("dark_oak_table", new BlockItem(TwigsBlocks.DARK_OAK_TABLE, new Item.Properties()));
     public static final Item MANGROVE_TABLE = register("mangrove_table", new BlockItem(TwigsBlocks.MANGROVE_TABLE, new Item.Properties()));
+    public static final Item CHERRY_TABLE = register("cherry_table", new BlockItem(TwigsBlocks.CHERRY_TABLE, new Item.Properties()));
     public static final Item BAMBOO_TABLE = register("bamboo_table", new BlockItem(TwigsBlocks.BAMBOO_TABLE, new Item.Properties()));
     public static final Item CRIMSON_TABLE = register("crimson_table", new BlockItem(TwigsBlocks.CRIMSON_TABLE, new Item.Properties()));
     public static final Item WARPED_TABLE = register("warped_table", new BlockItem(TwigsBlocks.WARPED_TABLE, new Item.Properties()));
@@ -73,6 +75,7 @@ public class TwigsItems {
     public static final Item MOSSY_BRICK_STAIRS = register("mossy_brick_stairs", new BlockItem(TwigsBlocks.MOSSY_BRICK_STAIRS, new Item.Properties()));
     public static final Item MOSSY_BRICK_SLAB = register("mossy_brick_slab", new BlockItem(TwigsBlocks.MOSSY_BRICK_SLAB, new Item.Properties()));
     public static final Item MOSSY_BRICK_WALL = register("mossy_brick_wall", new BlockItem(TwigsBlocks.MOSSY_BRICK_WALL, new Item.Properties()));
+    public static final Item BRICK_TRAIL = register("brick_trail", new BlockItem(TwigsBlocks.BRICK_TRAIL, new Item.Properties()));
 
     //gravel bricks
     public static final Item GRAVEL_BRICKS = register("gravel_bricks", new BlockItem(TwigsBlocks.GRAVEL_BRICKS, new Item.Properties()));
@@ -211,6 +214,7 @@ public class TwigsItems {
     public static final Item MIXED_SILT_BRICKS = register("mixed_silt_bricks", new BlockItem(TwigsBlocks.MIXED_SILT_BRICKS, new Item.Properties()));
     public static final Item CHISELED_SILT_BRICKS = register("chiseled_silt_bricks", new BlockItem(TwigsBlocks.CHISELED_SILT_BRICKS, new Item.Properties()));
     public static final Item CRACKED_SILT_BRICKS = register("cracked_silt_bricks", new BlockItem(TwigsBlocks.CRACKED_SILT_BRICKS, new Item.Properties()));
+    public static final Item SILT_BRICK_TRAIL = register("silt_brick_trail", new BlockItem(TwigsBlocks.SILT_BRICK_TRAIL, new Item.Properties()));
 
     public static final Item SILT_POT = register("silt_pot", new BlockItem(TwigsBlocks.SILT_POT, new Item.Properties()));
     public static final Item WHITE_SILT_POT = register("white_silt_pot", new BlockItem(TwigsBlocks.WHITE_SILT_POT, new Item.Properties()));

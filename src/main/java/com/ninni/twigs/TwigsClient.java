@@ -22,6 +22,8 @@ public class TwigsClient implements ClientModInitializer {
 	@Override
 	public void onInitializeClient() {
 		BlockRenderLayerMap.INSTANCE.putBlocks(RenderType.cutout(),
+				TwigsBlocks.BRICK_TRAIL,
+				TwigsBlocks.SILT_BRICK_TRAIL,
 				TwigsBlocks.AZALEA_FLOWERS,
 				TwigsBlocks.PETRIFIED_LICHEN,
 				TwigsBlocks.TWIG,
@@ -32,6 +34,7 @@ public class TwigsClient implements ClientModInitializer {
 				TwigsBlocks.BLUE_ORCHID_PAPER_LANTERN,
 				TwigsBlocks.CRIMSON_ROOTS_PAPER_LANTERN,
 				TwigsBlocks.DANDELION_PAPER_LANTERN,
+				TwigsBlocks.TORCHFLOWER_PAPER_LANTERN,
 				TwigsBlocks.COMPACTED_DRIPSTONE,
 				TwigsBlocks.BAMBOO_LEAVES,
 				TwigsBlocks.BAMBOO_THATCH,

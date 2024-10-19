@@ -28,7 +28,7 @@
   "overrides": [
     {
       "predicate": {
-        "twigs:playing": 1
+        "playing": 1
       },
       "model": "twigs:item/playing_bronzed_seashell"
     }

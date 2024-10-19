@@ -4,6 +4,7 @@ import com.ninni.twigs.Twigs;
 import com.ninni.twigs.block.AzaleaFlowersBlock;
 import com.ninni.twigs.block.BambooLeavesBlock;
 import com.ninni.twigs.block.BambooMatBlock;
+import com.ninni.twigs.block.BrickTrailBlock;
 import com.ninni.twigs.block.ColumnBlock;
 import com.ninni.twigs.block.CompactedDripstoneBlock;
 import com.ninni.twigs.block.CutAmethystBlock;
@@ -13,8 +14,8 @@ import com.ninni.twigs.block.LampBlock;
 import com.ninni.twigs.block.PaperLanternBlock;
 import com.ninni.twigs.block.PillarOxidizableBlock;
 import com.ninni.twigs.block.SeashellBlock;
+import com.ninni.twigs.block.SiltPotBlock;
 import com.ninni.twigs.block.TableBlock;
-import com.ninni.twigs.block.enums.SiltPotBlock;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
@@ -40,33 +41,34 @@ import java.util.function.ToIntFunction;
 public class TwigsBlocks {
 
     //collectibles
-    public static final Block AZALEA_FLOWERS = register("azalea_flowers", new AzaleaFlowersBlock(BlockBehaviour.Properties.of().instabreak().noCollission().noOcclusion().sound(SoundType.MOSS_CARPET)));
+    public static final Block AZALEA_FLOWERS = register("azalea_flowers", new AzaleaFlowersBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).instabreak().noCollission().noOcclusion().sound(SoundType.MOSS_CARPET)));
     @SuppressWarnings("unused") public static final Block POTTED_AZALEA_FLOWERS = register("potted_azalea_flowers", new FlowerPotBlock(AZALEA_FLOWERS, BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_FLOWERING_AZALEA)));
-    public static final Block TWIG = register("twig", new FloorItemBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).instabreak().noOcclusion().sound(SoundType.WOOD)));
-    public static final Block PEBBLE = register("pebble", new FloorItemBlock(BlockBehaviour.Properties.of().mapColor(MapColor.STONE).instabreak().noOcclusion().sound(SoundType.STONE)));
-    public static final Block OPALINE_SEASHELL = register("opaline_seashell", new SeashellBlock(BlockBehaviour.Properties.of().mapColor(MapColor.WOOD).instabreak().noOcclusion().sound(TwigsSoundEvents.SEASHELL)));
-    public static final Block BRONZED_SEASHELL = register("bronzed_seashell", new SeashellBlock(BlockBehaviour.Properties.of().mapColor(MapColor.WOOD).instabreak().noOcclusion().sound(TwigsSoundEvents.SEASHELL)));
-    public static final Block ROSEATE_SEASHELL = register("roseate_seashell", new SeashellBlock(BlockBehaviour.Properties.of().mapColor(MapColor.WOOD).instabreak().noOcclusion().sound(TwigsSoundEvents.SEASHELL)));
-    public static final Block TANGERINE_SEASHELL = register("tangerine_seashell", new SeashellBlock(BlockBehaviour.Properties.of().mapColor(MapColor.WOOD).instabreak().noOcclusion().sound(TwigsSoundEvents.SEASHELL)));
+    public static final Block TWIG = register("twig", new FloorItemBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).instabreak().noOcclusion().sound(SoundType.WOOD).noCollission()));
+    public static final Block PEBBLE = register("pebble", new FloorItemBlock(BlockBehaviour.Properties.of().mapColor(MapColor.STONE).instabreak().noOcclusion().sound(SoundType.STONE).noCollission()));
+    public static final Block OPALINE_SEASHELL = register("opaline_seashell", new SeashellBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_WHITE).instabreak().noOcclusion().sound(TwigsSoundEvents.SEASHELL)));
+    public static final Block BRONZED_SEASHELL = register("bronzed_seashell", new SeashellBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).instabreak().noOcclusion().sound(TwigsSoundEvents.SEASHELL)));
+    public static final Block ROSEATE_SEASHELL = register("roseate_seashell", new SeashellBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_PINK).instabreak().noOcclusion().sound(TwigsSoundEvents.SEASHELL)));
+    public static final Block TANGERINE_SEASHELL = register("tangerine_seashell", new SeashellBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_ORANGE).instabreak().noOcclusion().sound(TwigsSoundEvents.SEASHELL)));
 
     //bamboo
-    public static final Block BAMBOO_LEAVES = register("bamboo_leaves", new BambooLeavesBlock(BlockBehaviour.Properties.of().strength(0.2F).noOcclusion().instabreak().noCollission().sound(SoundType.MOSS_CARPET)));
+    public static final Block BAMBOO_LEAVES = register("bamboo_leaves", new BambooLeavesBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).strength(0.2F).noOcclusion().instabreak().noCollission().sound(SoundType.MOSS_CARPET)));
     public static final Block BAMBOO_THATCH = register("bamboo_thatch", new Block(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GREEN).strength(0.2F).sound(SoundType.MOSS)));
     public static final Block BAMBOO_THATCH_SLAB = register("bamboo_thatch_slab", new SlabBlock(BlockBehaviour.Properties.ofFullCopy(BAMBOO_THATCH)));
     public static final Block BAMBOO_MAT = register("bamboo_mat", new BambooMatBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BAMBOO_PLANKS)));
 
     //paper lanterns
-    public static final Block PAPER_LANTERN = register("paper_lantern", new PaperLanternBlock(Blocks.AIR, BlockBehaviour.Properties.of().strength(1.5f).pushReaction(PushReaction.DESTROY).sound(TwigsSoundEvents.PAPER_LANTERN).lightLevel(blockState -> 15).noOcclusion()));
+    public static final Block PAPER_LANTERN = register("paper_lantern", new PaperLanternBlock(Blocks.AIR, BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_WHITE).strength(1.5f).pushReaction(PushReaction.DESTROY).sound(TwigsSoundEvents.PAPER_LANTERN).lightLevel(blockState -> 15).noOcclusion()));
     public static final Block ALLIUM_PAPER_LANTERN = register("allium_paper_lantern", new PaperLanternBlock(Blocks.ALLIUM, BlockBehaviour.Properties.ofFullCopy(PAPER_LANTERN)));
     public static final Block BLUE_ORCHID_PAPER_LANTERN = register("blue_orchid_paper_lantern", new PaperLanternBlock(Blocks.BLUE_ORCHID, BlockBehaviour.Properties.ofFullCopy(PAPER_LANTERN)));
     public static final Block CRIMSON_ROOTS_PAPER_LANTERN = register("crimson_roots_paper_lantern", new PaperLanternBlock(Blocks.CRIMSON_ROOTS, BlockBehaviour.Properties.ofFullCopy(PAPER_LANTERN)));
     public static final Block DANDELION_PAPER_LANTERN = register("dandelion_paper_lantern", new PaperLanternBlock(Blocks.DANDELION, BlockBehaviour.Properties.ofFullCopy(PAPER_LANTERN)));
+    public static final Block TORCHFLOWER_PAPER_LANTERN = register("torchflower_paper_lantern", new PaperLanternBlock(Blocks.TORCHFLOWER, BlockBehaviour.Properties.ofFullCopy(PAPER_LANTERN)));
 
     //lamps
-    public static final Block LAMP = register("lamp", new LampBlock(BlockBehaviour.Properties.of().requiresCorrectToolForDrops().strength(4.5F).sound(TwigsSoundEvents.LAMP).lightLevel(createLampLightLevel())));
+    public static final Block LAMP = register("lamp", new LampBlock(BlockBehaviour.Properties.of().mapColor(MapColor.METAL).requiresCorrectToolForDrops().strength(4.5F).sound(TwigsSoundEvents.LAMP).lightLevel(createLampLightLevel())));
     public static final Block SOUL_LAMP = register("soul_lamp", new LampBlock(BlockBehaviour.Properties.ofFullCopy(TwigsBlocks.LAMP)));
-    public static final Block CRIMSON_SHROOMLAMP = register("crimson_shroomlamp", new Block(BlockBehaviour.Properties.of().strength(3.5F).sound(TwigsSoundEvents.SHROOMLAMP).lightLevel((state) -> 15)));
-    public static final Block WARPED_SHROOMLAMP = register("warped_shroomlamp", new Block(BlockBehaviour.Properties.ofFullCopy(CRIMSON_SHROOMLAMP)));
+    public static final Block CRIMSON_SHROOMLAMP = register("crimson_shroomlamp", new Block(BlockBehaviour.Properties.of().mapColor(Blocks.CRIMSON_PLANKS.defaultMapColor()).strength(3.5F).sound(TwigsSoundEvents.SHROOMLAMP).lightLevel((state) -> 15)));
+    public static final Block WARPED_SHROOMLAMP = register("warped_shroomlamp", new Block(BlockBehaviour.Properties.ofFullCopy(CRIMSON_SHROOMLAMP).mapColor(Blocks.WARPED_PLANKS.defaultMapColor())));
 
     //tables
     public static final Block OAK_TABLE = register("oak_table", new TableBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
@@ -76,6 +78,7 @@ public class TwigsBlocks {
     public static final Block ACACIA_TABLE = register("acacia_table", new TableBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.ACACIA_PLANKS)));
     public static final Block DARK_OAK_TABLE = register("dark_oak_table", new TableBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.DARK_OAK_PLANKS)));
     public static final Block MANGROVE_TABLE = register("mangrove_table", new TableBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.MANGROVE_PLANKS)));
+    public static final Block CHERRY_TABLE = register("cherry_table", new TableBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CHERRY_PLANKS)));
     public static final Block BAMBOO_TABLE = register("bamboo_table", new TableBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BAMBOO_PLANKS)));
     public static final Block CRIMSON_TABLE = register("crimson_table", new TableBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CRIMSON_PLANKS)));
     public static final Block WARPED_TABLE = register("warped_table", new TableBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WARPED_PLANKS)));
@@ -96,9 +99,10 @@ public class TwigsBlocks {
     public static final Block MOSSY_BRICK_STAIRS = register("mossy_brick_stairs", new StairBlock(MOSSY_BRICKS.defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(MOSSY_BRICKS)));
     public static final Block MOSSY_BRICK_SLAB = register("mossy_brick_slab", new SlabBlock(BlockBehaviour.Properties.ofFullCopy(MOSSY_BRICKS)));
     public static final Block MOSSY_BRICK_WALL = register("mossy_brick_wall", new WallBlock(BlockBehaviour.Properties.ofFullCopy(MOSSY_BRICKS)));
+    public static final Block BRICK_TRAIL = register("brick_trail", new BrickTrailBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED).noCollission().noOcclusion().instabreak()));
 
     //gravel bricks
-    public static final Block GRAVEL_BRICKS = register("gravel_bricks", new Block(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GRAY).strength(0.8f).sound(TwigsSoundEvents.GRAVEL_BRICKS)));
+    public static final Block GRAVEL_BRICKS = register("gravel_bricks", new Block(BlockBehaviour.Properties.of().mapColor(Blocks.GRAVEL.defaultMapColor()).strength(0.8f).sound(TwigsSoundEvents.GRAVEL_BRICKS)));
     public static final Block GRAVEL_BRICK_STAIRS = register("gravel_brick_stairs", new StairBlock(GRAVEL_BRICKS.defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(GRAVEL_BRICKS)));
     public static final Block GRAVEL_BRICK_SLAB = register("gravel_brick_slab", new SlabBlock(BlockBehaviour.Properties.ofFullCopy(GRAVEL_BRICKS)));
     public static final Block GRAVEL_BRICK_WALL = register("gravel_brick_wall", new WallBlock(BlockBehaviour.Properties.ofFullCopy(GRAVEL_BRICKS)));
@@ -130,9 +134,9 @@ public class TwigsBlocks {
     public static final Block CUT_AMETHYST = register("cut_amethyst", new CutAmethystBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.AMETHYST_BLOCK).pushReaction(PushReaction.PUSH_ONLY)));
 
     //misc
-    public static final Block PETRIFIED_LICHEN = register("petrified_lichen", new GlowLichenBlock(BlockBehaviour.Properties.of().mapColor(MapColor.GLOW_LICHEN).noCollission().strength(0.2f).sound(SoundType.DEEPSLATE).lightLevel(GlowLichenBlock.emission(7))));
+    public static final Block PETRIFIED_LICHEN = register("petrified_lichen", new GlowLichenBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GRAY).noCollission().strength(0.2f).sound(SoundType.DEEPSLATE).lightLevel(GlowLichenBlock.emission(7))));
     public static final Block COMPACTED_DRIPSTONE = register("compacted_dripstone", new CompactedDripstoneBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.DRIPSTONE_BLOCK)));
-    public static final Block ROCKY_DIRT = register("rocky_dirt", new Block(BlockBehaviour.Properties.of().requiresCorrectToolForDrops().strength(1.25F, 6.0F).sound(TwigsSoundEvents.ROCKY_DIRT)));
+    public static final Block ROCKY_DIRT = register("rocky_dirt", new Block(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GRAY).requiresCorrectToolForDrops().strength(1.25F, 6.0F).sound(TwigsSoundEvents.ROCKY_DIRT)));
 
     //cobblestone bricks
     public static final Block COBBLESTONE_BRICKS = register("cobblestone_bricks", new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.COBBLESTONE)));
@@ -196,7 +200,7 @@ public class TwigsBlocks {
     public static final Block CRACKED_POLISHED_SCHIST_BRICKS = register("cracked_polished_schist_bricks", new Block(BlockBehaviour.Properties.ofFullCopy(POLISHED_SCHIST_BRICKS)));
 
     //rhyolite blocks
-    public static final Block RHYOLITE = register("rhyolite", new RotatedPillarBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_WHITE).requiresCorrectToolForDrops().strength(1.5F).sound(TwigsSoundEvents.RHYOLITE)));
+    public static final Block RHYOLITE = register("rhyolite", new RotatedPillarBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).requiresCorrectToolForDrops().strength(1.5F).sound(TwigsSoundEvents.RHYOLITE)));
     public static final Block RHYOLITE_STAIRS = register("rhyolite_stairs", new StairBlock(RHYOLITE.defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(RHYOLITE)));
     public static final Block RHYOLITE_SLAB = register("rhyolite_slab", new SlabBlock(BlockBehaviour.Properties.ofFullCopy(RHYOLITE)));
     public static final Block RHYOLITE_WALL = register("rhyolite_wall", new WallBlock(BlockBehaviour.Properties.ofFullCopy(RHYOLITE)));
@@ -210,7 +214,7 @@ public class TwigsBlocks {
     public static final Block CRACKED_POLISHED_RHYOLITE_BRICKS = register("cracked_polished_rhyolite_bricks", new Block(BlockBehaviour.Properties.ofFullCopy(POLISHED_RHYOLITE_BRICKS)));
 
     //bloodstone blocks
-    public static final Block BLOODSTONE = register("bloodstone", new Block(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_WHITE).requiresCorrectToolForDrops().strength(1F).sound(TwigsSoundEvents.BLOODSTONE)));
+    public static final Block BLOODSTONE = register("bloodstone", new Block(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GRAY).requiresCorrectToolForDrops().strength(1F).sound(TwigsSoundEvents.BLOODSTONE)));
     public static final Block BLOODSTONE_STAIRS = register("bloodstone_stairs", new StairBlock(BLOODSTONE.defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(BLOODSTONE)));
     public static final Block BLOODSTONE_SLAB = register("bloodstone_slab", new SlabBlock(BlockBehaviour.Properties.ofFullCopy(BLOODSTONE)));
     public static final Block BLOODSTONE_WALL = register("bloodstone_wall", new WallBlock(BlockBehaviour.Properties.ofFullCopy(BLOODSTONE)));
@@ -232,6 +236,7 @@ public class TwigsBlocks {
     public static final Block MIXED_SILT_BRICKS = register("mixed_silt_bricks", new Block(BlockBehaviour.Properties.ofFullCopy(SILT_BRICKS)));
     public static final Block CHISELED_SILT_BRICKS = register("chiseled_silt_bricks", new FacingBlock(BlockBehaviour.Properties.ofFullCopy(SILT_BRICKS)));
     public static final Block CRACKED_SILT_BRICKS = register("cracked_silt_bricks", new Block(BlockBehaviour.Properties.ofFullCopy(SILT_BRICKS)));
+    public static final Block SILT_BRICK_TRAIL = register("silt_brick_trail", new BrickTrailBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).noCollission().noOcclusion().instabreak()));
 
     public static final Block SILT_POT = register("silt_pot", new SiltPotBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.TERRACOTTA).strength(0.5f, 2f)));
     public static final Block WHITE_SILT_POT = register("white_silt_pot", new SiltPotBlock(BlockBehaviour.Properties.ofFullCopy(SILT_POT).mapColor(MapColor.TERRACOTTA_WHITE)));

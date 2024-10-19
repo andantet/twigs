@@ -2,7 +2,6 @@ package com.ninni.twigs.block;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.tags.BlockTags;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.LevelAccessor;
@@ -64,7 +63,7 @@ public class FloorItemBlock extends Block implements SimpleWaterloggedBlock {
     public boolean canSurvive(BlockState blockState, LevelReader levelReader, BlockPos blockPos) {
         BlockPos belowPos = blockPos.below();
         BlockState belowState = levelReader.getBlockState(belowPos);
-        return (!belowState.getCollisionShape(levelReader, belowPos).getFaceShape(Direction.UP).isEmpty() || belowState.isFaceSturdy(levelReader, belowPos, Direction.UP)) && !belowState.is(BlockTags.LEAVES);
+        return (!belowState.getCollisionShape(levelReader, belowPos).getFaceShape(Direction.UP).isEmpty() || belowState.isFaceSturdy(levelReader, belowPos, Direction.UP));
     }
 
     @Override

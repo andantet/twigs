@@ -13,6 +13,10 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Blocks;
 
 import static com.ninni.twigs.Twigs.MOD_ID;
+import static com.ninni.twigs.registry.TwigsBlocks.BRICK_TRAIL;
+import static com.ninni.twigs.registry.TwigsBlocks.CHERRY_TABLE;
+import static com.ninni.twigs.registry.TwigsBlocks.SILT_BRICK_TRAIL;
+import static com.ninni.twigs.registry.TwigsBlocks.TORCHFLOWER_PAPER_LANTERN;
 import static com.ninni.twigs.registry.TwigsItems.ACACIA_TABLE;
 import static com.ninni.twigs.registry.TwigsItems.ALLIUM_PAPER_LANTERN;
 import static com.ninni.twigs.registry.TwigsItems.AZALEA_FLOWERS;
@@ -98,6 +102,7 @@ import static com.ninni.twigs.registry.TwigsItems.GREEN_SILT_SHINGLE_SLAB;
 import static com.ninni.twigs.registry.TwigsItems.GREEN_SILT_SHINGLE_STAIRS;
 import static com.ninni.twigs.registry.TwigsItems.GREEN_SILT_SHINGLE_WALL;
 import static com.ninni.twigs.registry.TwigsItems.JUNGLE_TABLE;
+import static com.ninni.twigs.registry.TwigsItems.LAMP;
 import static com.ninni.twigs.registry.TwigsItems.LIGHT_BLUE_PACKED_SILT;
 import static com.ninni.twigs.registry.TwigsItems.LIGHT_BLUE_SILT_POT;
 import static com.ninni.twigs.registry.TwigsItems.LIGHT_BLUE_SILT_SHINGLES;
@@ -268,7 +273,6 @@ import static com.ninni.twigs.registry.TwigsItems.YELLOW_SILT_SHINGLES;
 import static com.ninni.twigs.registry.TwigsItems.YELLOW_SILT_SHINGLE_SLAB;
 import static com.ninni.twigs.registry.TwigsItems.YELLOW_SILT_SHINGLE_STAIRS;
 import static com.ninni.twigs.registry.TwigsItems.YELLOW_SILT_SHINGLE_WALL;
-import static com.ninni.twigs.registry.TwigsItems.lAMP;
 
 public class TwigsCreativeModeTab {
 
@@ -280,8 +284,10 @@ public class TwigsCreativeModeTab {
                     PAPER_LANTERN,
                     ALLIUM_PAPER_LANTERN,
                     BLUE_ORCHID_PAPER_LANTERN,
+                    CRIMSON_ROOTS_PAPER_LANTERN,
                     DANDELION_PAPER_LANTERN,
-                    lAMP,
+                    TORCHFLOWER_PAPER_LANTERN,
+                    LAMP,
                     SOUL_LAMP
             );
             entries.addAfter(Items.GLOW_LICHEN, PETRIFIED_LICHEN);
@@ -351,6 +357,7 @@ public class TwigsCreativeModeTab {
             entries.addAfter(Items.BIRCH_SLAB, BIRCH_TABLE);
             entries.addAfter(Items.JUNGLE_SLAB, JUNGLE_TABLE);
             entries.addAfter(Items.ACACIA_SLAB, ACACIA_TABLE);
+            entries.addAfter(Items.CHERRY_SLAB, CHERRY_TABLE);
             entries.addAfter(Items.DARK_OAK_SLAB, DARK_OAK_TABLE);
             entries.addAfter(Items.MANGROVE_SLAB, MANGROVE_TABLE);
             entries.addAfter(Items.BAMBOO_SLAB, BAMBOO_TABLE);
@@ -394,13 +401,15 @@ public class TwigsCreativeModeTab {
                     MOSSY_BRICK_STAIRS,
                     MOSSY_BRICK_SLAB,
                     MOSSY_BRICK_WALL,
+                    BRICK_TRAIL,
                     SILT_BRICKS,
                     CRACKED_SILT_BRICKS,
                     SILT_BRICK_STAIRS,
                     SILT_BRICK_SLAB,
                     SILT_BRICK_WALL,
                     CHISELED_SILT_BRICKS,
-                    MIXED_SILT_BRICKS
+                    MIXED_SILT_BRICKS,
+                    SILT_BRICK_TRAIL
             );
 
             entries.addAfter(Items.POLISHED_BLACKSTONE_BRICK_WALL,
@@ -411,7 +420,19 @@ public class TwigsCreativeModeTab {
                     TWISTING_POLISHED_BLACKSTONE_BRICKS,
                     TWISTING_POLISHED_BLACKSTONE_BRICK_STAIRS,
                     TWISTING_POLISHED_BLACKSTONE_BRICK_SLAB,
-                    TWISTING_POLISHED_BLACKSTONE_BRICK_WALL
+                    TWISTING_POLISHED_BLACKSTONE_BRICK_WALL,
+                    BLOODSTONE,
+                    BLOODSTONE_STAIRS,
+                    BLOODSTONE_SLAB,
+                    BLOODSTONE_WALL,
+                    POLISHED_BLOODSTONE,
+                    POLISHED_BLOODSTONE_STAIRS,
+                    POLISHED_BLOODSTONE_SLAB,
+                    POLISHED_BLOODSTONE_BRICKS,
+                    CRACKED_POLISHED_BLOODSTONE_BRICKS,
+                    POLISHED_BLOODSTONE_BRICK_STAIRS,
+                    POLISHED_BLOODSTONE_BRICK_SLAB,
+                    POLISHED_BLOODSTONE_BRICK_WALL
             );
 
             entries.addAfter(Items.POLISHED_BASALT, POLISHED_BASALT_BRICKS);
@@ -486,21 +507,6 @@ public class TwigsCreativeModeTab {
                     POLISHED_RHYOLITE_BRICK_STAIRS,
                     POLISHED_RHYOLITE_BRICK_SLAB,
                     POLISHED_RHYOLITE_BRICK_WALL
-            );
-
-            entries.addAfter(Items.POLISHED_BLACKSTONE_BRICK_WALL,
-                    BLOODSTONE,
-                    BLOODSTONE_STAIRS,
-                    BLOODSTONE_SLAB,
-                    BLOODSTONE_WALL,
-                    POLISHED_BLOODSTONE,
-                    POLISHED_BLOODSTONE_STAIRS,
-                    POLISHED_BLOODSTONE_SLAB,
-                    POLISHED_BLOODSTONE_BRICKS,
-                    CRACKED_POLISHED_BLOODSTONE_BRICKS,
-                    POLISHED_BLOODSTONE_BRICK_STAIRS,
-                    POLISHED_BLOODSTONE_BRICK_SLAB,
-                    POLISHED_BLOODSTONE_BRICK_WALL
             );
 
             entries.addAfter(Items.CUT_COPPER_SLAB,
@@ -661,9 +667,10 @@ public class TwigsCreativeModeTab {
             output.accept(BLUE_ORCHID_PAPER_LANTERN);
             output.accept(CRIMSON_ROOTS_PAPER_LANTERN);
             output.accept(DANDELION_PAPER_LANTERN);
+            output.accept(TORCHFLOWER_PAPER_LANTERN);
 
             //lamps
-            output.accept(lAMP);
+            output.accept(LAMP);
             output.accept(SOUL_LAMP);
             output.accept(CRIMSON_SHROOMLAMP);
             output.accept(WARPED_SHROOMLAMP);
@@ -676,6 +683,7 @@ public class TwigsCreativeModeTab {
             output.accept(ACACIA_TABLE);
             output.accept(DARK_OAK_TABLE);
             output.accept(MANGROVE_TABLE);
+            output.accept(CHERRY_TABLE);
             output.accept(BAMBOO_TABLE);
             output.accept(CRIMSON_TABLE);
             output.accept(WARPED_TABLE);
@@ -696,6 +704,7 @@ public class TwigsCreativeModeTab {
             output.accept(MOSSY_BRICK_STAIRS);
             output.accept(MOSSY_BRICK_SLAB);
             output.accept(MOSSY_BRICK_WALL);
+            output.accept(BRICK_TRAIL);
 
             //gravel bricks
             output.accept(GRAVEL_BRICKS);
@@ -834,6 +843,7 @@ public class TwigsCreativeModeTab {
             output.accept(SILT_BRICK_WALL);
             output.accept(CHISELED_SILT_BRICKS);
             output.accept(MIXED_SILT_BRICKS);
+            output.accept(SILT_BRICK_TRAIL);
 
 
             output.accept(PACKED_SILT);
